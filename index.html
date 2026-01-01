@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i>CALCULATOR</h1>
+            <div class="controls">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button id="historyToggle" class="history-toggle" aria-label="Toggle history panel">
+                    <i class="fas fa-history"></i>
+                    <span class="badge" id="historyCount">0</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="calculator-container">
+            <div class="calculator">
+                <div class="display-container">
+                    <div class="expression-display" id="expressionDisplay"></div>
+                    <div class="result-display" id="resultDisplay">0</div>
+                    <div class="memory-indicator" id="memoryIndicator"></div>
+                </div>
+
+                <div class="buttons-grid">
+                    <!-- Baris 1 -->
+                    <button class="btn operator" data-action="clear">C</button>
+                    <button class="btn operator" data-action="clear-entry">CE</button>
+                    <button class="btn operator" data-action="backspace"><i class="fas fa-backspace"></i></button>
+                    <button class="btn operator" data-action="divide">÷</button>
+                    <button class="btn operator" data-action="percent">%</button>
+
+                    <!-- Baris 2 -->
+                    <button class="btn" data-number="7">7</button>
+                    <button class="btn" data-number="8">8</button>
+                    <button class="btn" data-number="9">9</button>
+                    <button class="btn operator" data-action="multiply">×</button>
+                    <button class="btn scientific" data-action="power">x²</button>
+
+                    <!-- Baris 3 -->
+                    <button class="btn" data-number="4">4</button>
+                    <button class="btn" data-number="5">5</button>
+                    <button class="btn" data-number="6">6</button>
+                    <button class="btn operator" data-action="subtract">-</button>
+                    <button class="btn scientific" data-action="sqrt">√</button>
+
+                    <!-- Baris 4 -->
+                    <button class="btn" data-number="1">1</button>
+                    <button class="btn" data-number="2">2</button>
+                    <button class="btn" data-number="3">3</button>
+                    <button class="btn operator" data-action="add">+</button>
+                    <button class="btn scientific" data-action="toggle-sign">±</button>
+
+                    <!-- Baris 5 -->
+                    <button class="btn" data-number="0">0</button>
+                    <button class="btn" data-action="decimal">.</button>
+                    <button class="btn" data-action="open-parenthesis">(</button>
+                    <button class="btn" data-action="close-parenthesis">)</button>
+                    <button class="btn equals" data-action="equals">=</button>
+
+                    <!-- Baris 6: Tombon Memory dan Scientific (bonus) -->
+                    <button class="btn memory" data-action="memory-clear">MC</button>
+                    <button class="btn memory" data-action="memory-recall">MR</button>
+                    <button class="btn memory" data-action="memory-add">M+</button>
+                    <button class="btn memory" data-action="memory-subtract">M-</button>
+                    <button class="btn scientific" data-action="copy"><i class="fas fa-copy"></i></button>
+                </div>
+
+                <div class="keyboard-hint">
+                    <small><i class="fas fa-keyboard"></i> Gunakan keyboard untuk input cepat</small>
+                </div>
+            </div>
+
+            <aside class="history-panel" id="historyPanel">
+                <div class="history-header">
+                    <h3><i class="fas fa-history"></i> History Perhitungan</h3>
+                    <button class="btn-icon" id="clearHistory" aria-label="Clear history">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <p class="empty-history">Belum ada riwayat perhitungan</p>
+                </div>
+                <div class="history-actions">
+                    <button class="btn-secondary" id="exportHistory">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="btn-secondary" id="importHistory">
+                        <i class="fas fa-upload"></i> Import
+                    </button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                </div>
+            </aside>
+        </main>
+
+        <footer class="footer">
+            <p>Interactive Calculator &copy; 2025 | 
+                <span id="currentMode">Light Mode</span> | 
+                <button id="scientificToggle" class="scientific-toggle">Scientific Mode: <span>OFF</span></button>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
