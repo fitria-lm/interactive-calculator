@@ -1,6 +1,10 @@
 # Modern Interactive Calculator
 
-![Calculator Preview](https://fitria-lm.github.io/interactive-calculator/)
+## Live Demo
+👉 https://fitria-lm.github.io/interactive-calculator/
+
+## Preview
+![Calculator Preview](preview.png)
 
 A modern interactive calculator built with pure HTML, CSS, and Vanilla JavaScript.  
 Supports basic and advanced mathematical operations with a responsive and intuitive user interface.
